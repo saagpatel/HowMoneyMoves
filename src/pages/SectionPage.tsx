@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { AnimationScene } from "../components/AnimationScene";
 import { SECTIONS } from "../data/sections";
 import { DURATION } from "../lib/animation-config";
+import { useDocumentHead } from "../lib/use-document-head";
 import { AchScene } from "../scenes/AchScene";
 import { DirectDepositScene } from "../scenes/DirectDepositScene";
 import { FedSettlementScene } from "../scenes/FedSettlementScene";
@@ -24,9 +25,18 @@ const SCENE_COMPONENTS: Record<
 	"fractional-reserve": FractionalReserveScene,
 };
 
+const DEFAULT_TITLE = "How Money Moves — See the Plumbing of US Banking";
+const DEFAULT_DESC =
+	"Interactive animated explainer of ACH, Fedwire, SWIFT, and the rails behind every transaction.";
+
 export function SectionPage() {
 	const { sectionId } = useParams<{ sectionId: string }>();
 	const section = SECTIONS[sectionId ?? ""];
+
+	useDocumentHead(
+		section ? `${section.title} — How Money Moves` : DEFAULT_TITLE,
+		section?.subtitle ?? DEFAULT_DESC,
+	);
 
 	if (!section) {
 		return (
