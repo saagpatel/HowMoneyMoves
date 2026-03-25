@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=JetBrains+Mono:wght@300;400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--bg-base: #0a0e1a;
+	--bg-card: #111827;
+	--bg-elevated: #1f2937;
+
+	--trace-primary: #22d3ee;
+	--trace-secondary: #a78bfa;
+	--node-bank: #1e40af;
+	--node-fed: #7c3aed;
+	--node-employer: #065f46;
+	--node-swift: #92400e;
+
+	--text-primary: #f9fafb;
+	--text-secondary: #9ca3af;
+	--text-accent: #22d3ee;
+
+	--border: #374151;
+}
+
+html {
+	color-scheme: dark;
+}
+
+body {
+	margin: 0;
+	min-height: 100vh;
+	background-color: var(--bg-base);
+	color: var(--text-primary);
+	font-family: "Space Grotesk", system-ui, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+	min-height: 100vh;
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--bg-base);
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--border);
+	border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: var(--bg-elevated);
+}
