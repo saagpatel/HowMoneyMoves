@@ -30,6 +30,9 @@ export const paycheck: Section = {
 			label: "ACH file submitted to ODFI",
 			narrative:
 				"The payroll processor submits the ACH file to its bank — the Originating Depository Financial Institution (ODFI). The ODFI validates the file format and batch totals.",
+			wonkyFact:
+				"93% of US workers receive pay via direct deposit — only 7% still get paper checks.",
+			wonkyFactSource: "American Payroll Association 2023 Survey",
 			errorCase: {
 				title: "File rejected by ODFI",
 				description:
@@ -41,6 +44,14 @@ export const paycheck: Section = {
 			label: "ODFI forwards to ACH Operator",
 			narrative:
 				"The ODFI transmits the file to an ACH Operator — either the Federal Reserve or EPN (Electronic Payments Network, run by The Clearing House). The operator sorts transactions by receiving bank.",
+			wonkyFact:
+				"A typical payroll batch contains 500–2,000 individual entries. Large employers like Walmart submit batches with 1.5 million+ entries.",
+			wonkyFactSource: "NACHA Operating Rules",
+			errorCase: {
+				title: "ACH Operator rejection",
+				description:
+					"If the batch fails Fed validation (invalid routing numbers, duplicate trace numbers), all entries in the batch are returned — delaying the entire payroll run.",
+			},
 		},
 		{
 			id: "paycheck-5",

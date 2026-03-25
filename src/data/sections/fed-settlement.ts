@@ -39,6 +39,9 @@ export const fedSettlement: Section = {
 			label: "CHIPS (private settlement)",
 			narrative:
 				"CHIPS (Clearing House Interbank Payments System) is a private-sector alternative to Fedwire, run by The Clearing House. It handles about 95% of US cross-border dollar payments.",
+			wonkyFact:
+				"CHIPS settles $1.8 trillion daily across roughly 250,000 transactions — making it one of the largest private payment systems in the world.",
+			wonkyFactSource: "The Clearing House Annual Report",
 			errorCase: {
 				title: "Daylight overdraft",
 				description:
@@ -50,6 +53,9 @@ export const fedSettlement: Section = {
 			label: "End-of-day settlement",
 			narrative:
 				"At the end of each business day, all deferred settlements are finalized. Every bank's reserve account reflects all the day's ACH, check, and Fedwire activity. The books must balance.",
+			wonkyFact:
+				"The Fed's FedNow service launched in July 2023, enabling instant 24/7 settlement for the first time. It's designed to eventually replace same-day ACH for small payments.",
+			wonkyFactSource: "Federal Reserve FedNow Service",
 		},
 		{
 			id: "fed-6",

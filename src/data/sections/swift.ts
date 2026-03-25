@@ -12,6 +12,9 @@ export const swift: Section = {
 			label: "Initiate wire transfer",
 			narrative:
 				"You request an international wire at your bank. The bank collects: beneficiary name, bank name, SWIFT/BIC code, account number (IBAN in Europe), amount, and purpose of payment.",
+			wonkyFact:
+				"SWIFT handles about 44 million messages per day across its network — but none of them are actual money. Every message is an instruction, not a transfer.",
+			wonkyFactSource: "SWIFT Annual Review 2023",
 		},
 		{
 			id: "swift-2",
@@ -37,6 +40,9 @@ export const swift: Section = {
 				"Correspondent banks maintain paired accounts: a 'nostro' (ours with them) and 'vostro' (theirs with us). Money moves by debiting one nostro and crediting another — no central settlement system for cross-border transfers.",
 			detail:
 				"If US Bank A has a nostro account at UK Bank B, A's nostro is B's vostro. When A sends money to a UK beneficiary, B debits A's nostro and credits the beneficiary locally.",
+			wonkyFact:
+				"A single MT103 message averages about 1,500 characters — roughly the length of this paragraph. It carries 70+ fields including sender, receiver, amount, currency, and purpose codes.",
+			wonkyFactSource: "SWIFT Standards Documentation",
 		},
 		{
 			id: "swift-5",

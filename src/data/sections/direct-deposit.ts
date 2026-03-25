@@ -36,6 +36,9 @@ export const directDeposit: Section = {
 			label: "RDFI receives entries",
 			narrative:
 				"Your bank (the RDFI) receives the delivery file from the ACH Operator. It posts the credit to your account based on the routing and account number in the entry.",
+			wonkyFact:
+				"The ACH return rate is less than 0.5% — meaning 99.5% of all ACH transactions complete without issues.",
+			wonkyFactSource: "NACHA 2023 Annual Report",
 			errorCase: {
 				title: "Wrong account number",
 				description:

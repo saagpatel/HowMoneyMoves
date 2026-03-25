@@ -20,6 +20,11 @@ export const fractionalReserve: Section = {
 				"The bank lends $90 to another customer (keeping $10 in reserves, historically). That borrower spends the $90, and it ends up deposited in another bank.",
 			detail:
 				"Since March 2020, the reserve requirement has been 0%. Banks now decide their own reserve levels based on operational needs, not regulatory minimums. The 10% ratio is used here for illustration.",
+			errorCase: {
+				title: "Overlending",
+				description:
+					"If a bank lends too aggressively and can't meet withdrawal demands, regulators (OCC, FDIC) can impose corrective action — including capital requirements, lending restrictions, or forced mergers.",
+			},
 		},
 		{
 			id: "fr-3",
