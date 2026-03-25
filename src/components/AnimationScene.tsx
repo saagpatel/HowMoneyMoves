@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { useKeyboardNav } from "../lib/use-keyboard-nav";
 import { useScene } from "../lib/use-scene";
 import type { SceneStep } from "../types";
 import { ControlBar } from "./ControlBar";
@@ -12,6 +13,7 @@ interface AnimationSceneProps {
 
 export function AnimationScene({ steps, children }: AnimationSceneProps) {
 	const [state, controls] = useScene(steps);
+	useKeyboardNav(controls);
 	const currentStepData = steps[state.currentStep];
 
 	return (
