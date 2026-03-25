@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#0a0e1a"/>
+
+  <!-- Subtle grid -->
+  <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#1f2937" stroke-width="0.5"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.3"/>
+
+  <!-- Trace line -->
+  <path
+    d="M 100,315 C 250,315 300,250 450,250 S 650,380 800,315 S 1000,250 1100,315"
+    stroke="#22d3ee"
+    stroke-width="3"
+    fill="none"
+    stroke-linecap="round"
+    opacity="0.8"
+  />
+
+  <!-- Glow version of trace -->
+  <path
+    d="M 100,315 C 250,315 300,250 450,250 S 650,380 800,315 S 1000,250 1100,315"
+    stroke="#22d3ee"
+    stroke-width="12"
+    fill="none"
+    stroke-linecap="round"
+    opacity="0.15"
+  />
+
+  <!-- Node dots along the path -->
+  <circle cx="100" cy="315" r="8" fill="#1e40af" stroke="#22d3ee" stroke-width="2"/>
+  <circle cx="350" cy="270" r="8" fill="#065f46" stroke="#22d3ee" stroke-width="2"/>
+  <circle cx="600" cy="340" r="8" fill="#7c3aed" stroke="#22d3ee" stroke-width="2"/>
+  <circle cx="850" cy="290" r="8" fill="#1e40af" stroke="#22d3ee" stroke-width="2"/>
+  <circle cx="1100" cy="315" r="8" fill="#92400e" stroke="#22d3ee" stroke-width="2"/>
+
+  <!-- Title -->
+  <text x="600" y="180" text-anchor="middle" fill="#f9fafb" font-size="64" font-weight="700" font-family="system-ui, sans-serif">
+    How Money Moves
+  </text>
+
+  <!-- Subtitle -->
+  <text x="600" y="230" text-anchor="middle" fill="#9ca3af" font-size="24" font-weight="400" font-family="system-ui, sans-serif">
+    The plumbing of US banking, visualized
+  </text>
+
+  <!-- Bottom labels -->
+  <text x="100" y="370" text-anchor="middle" fill="#9ca3af" font-size="12" font-family="monospace">Paycheck</text>
+  <text x="350" y="310" text-anchor="middle" fill="#9ca3af" font-size="12" font-family="monospace">ACH</text>
+  <text x="600" y="385" text-anchor="middle" fill="#9ca3af" font-size="12" font-family="monospace">Fed</text>
+  <text x="850" y="335" text-anchor="middle" fill="#9ca3af" font-size="12" font-family="monospace">Wire</text>
+  <text x="1100" y="360" text-anchor="middle" fill="#9ca3af" font-size="12" font-family="monospace">SWIFT</text>
+</svg>

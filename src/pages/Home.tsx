@@ -2,8 +2,14 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { DURATION } from "../lib/animation-config";
+import { useDocumentHead } from "../lib/use-document-head";
 
 export function Home() {
+	useDocumentHead(
+		"How Money Moves — See the Plumbing of US Banking",
+		"Trace a dollar from paycheck to bank account to Federal Reserve settlement. Interactive animated explainer of ACH, Fedwire, SWIFT, and the rails behind every transaction.",
+	);
+
 	return (
 		<div className="flex min-h-[70vh] flex-col items-center justify-center text-center">
 			<motion.h1

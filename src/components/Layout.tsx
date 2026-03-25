@@ -39,7 +39,10 @@ export function Layout() {
 				</div>
 			</header>
 
-			<main className="mx-auto w-full max-w-7xl flex-1 px-4 py-8">
+			<main
+				id="main-content"
+				className="mx-auto w-full max-w-7xl flex-1 px-4 py-8"
+			>
 				<Outlet />
 			</main>
 		</div>
