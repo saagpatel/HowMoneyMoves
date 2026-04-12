@@ -1,41 +1,42 @@
 # How Money Moves
 
-## Overview
-An interactive web explainer that traces a dollar from paycheck → direct deposit → bank account → ACH transfer → Fed settlement → SWIFT wire, visualizing the actual plumbing of the US banking system. Target audience: financially literate adults (25–40) who use these systems daily but have never seen how they work. Built as a static React site deployable to Vercel.
+An interactive web explainer that traces a dollar from paycheck through the full US banking pipeline — direct deposit, bank account, ACH transfer, Fed settlement, SWIFT wire, and fractional reserve mechanics — visualizing the actual plumbing of the US banking system. Six fully animated scenes with keyboard navigation, SEO optimization, OG image, and Vercel deployment. Target audience: financially literate adults who use these systems daily but have never seen how they work.
 
 ## Tech Stack
-- React 18 + TypeScript 5 (strict mode, hooks only)
-- Vite 5 — build tool, dev server
-- Framer Motion 11 — animation engine for all SVG/DOM transitions
-- Tailwind CSS 3.4 — utility styling
-- React Router 6 — section-based URL routing (e.g., `/ach`, `/swift`, `/fed`)
-- No backend. No API calls. Fully static.
+- **React 18** + **TypeScript 5** (strict mode, hooks only)
+- **Vite 5** — build tool, dev server
+- **Framer Motion 11** — animation engine for all SVG/DOM transitions
+- **Tailwind CSS 3.4** — utility styling
+- **React Router 6** — section-based URL routing (e.g., `/ach`, `/swift`, `/fed`)
+- No backend, no API calls — fully static site
 
-## Development Conventions
-- TypeScript strict mode — no `any`, no non-null assertions without comment
-- Component files: PascalCase (`AchFlow.tsx`), utilities: kebab-case (`format-currency.ts`)
-- Animation constants in `src/lib/animation-config.ts` — no magic duration numbers inline
-- All financial facts sourced and cited in `src/data/facts.ts` — no unverified numbers in UI copy
-- Conventional commits: `feat:`, `fix:`, `chore:`, `content:`
+## Status
+Phase 3 complete — all planned phases shipped:
+- Phase 0: Vite scaffold, animation framework, data layer
+- Phase 1: First 3 animated SVG scenes + reusable animation primitives
+- Phase 2: All 6 animated scenes complete, keyboard navigation, content polish
+- Phase 3: SEO meta tags, OG image, vercel.json config, skip-to-content accessibility, Vercel deploy
 
-## Current Phase
-**Phase 0: Scaffold + Animation Framework**
-See IMPLEMENTATION-ROADMAP.md for full phase details.
+Scenes implemented: paycheck deposit, direct deposit, ACH transfer, Fed settlement, SWIFT wire, fractional reserve banking.
 
-## Key Decisions
-| Decision | Choice | Why |
-|----------|--------|-----|
-| Animation engine | Framer Motion (not GSAP) | Better React integration, declarative API, no license cost |
-| Routing | URL-per-section | Deep-linkable, shareable sections |
-| Data layer | Static TypeScript constants | No API latency, works offline, simple to update |
-| Deployment | Vercel (static export) | Zero config, free tier, CDN included |
-| Diagram approach | SVG + Framer Motion (not D3) | Full control over animation, no D3 learning curve |
-| Color system | Dark background, neon accent traces | Money/fintech aesthetic, trace paths pop visually |
+## Build & Run
+```bash
+npm install
+npm run dev        # development server
+npm run build      # production build
+npm run preview    # preview production build locally
+```
 
-## Do NOT
-- Do not use D3.js — all diagrams are hand-authored SVG animated with Framer Motion
-- Do not add real-time data or API calls — this is a static educational tool
-- Do not build all 7 sections in one phase — build Phase 1 MVP (3 sections) first and verify animation quality before expanding
-- Do not add features not in the current phase of IMPLEMENTATION-ROADMAP.md
-- Do not use class components — hooks only
-- Do not put financial facts inline in JSX — all copy comes from `src/data/facts.ts`
+Deployed to Vercel — `vercel.json` config in repo root.
+
+## Architecture
+- `src/scenes/` — one component per animated scene (Paycheck, DirectDeposit, ACH, FedSettlement, SWIFT, FractionalReserve)
+- `src/lib/animation-config.ts` — all animation duration/easing constants (no magic numbers inline)
+- `src/data/facts.ts` — all financial facts and copy (nothing hardcoded in JSX)
+- `src/components/` — reusable primitives: animated arrows, flow labels, institution icons
+- All diagrams are hand-authored SVG animated with Framer Motion (no D3)
+- URL-per-section routing enables deep-linking and sharing
+
+## Known Issues
+- No mobile-specific layout optimizations — designed for desktop/tablet viewports
+- Financial facts sourced at build time; not updated for regulatory changes post-launch
