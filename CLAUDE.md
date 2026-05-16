@@ -40,3 +40,51 @@ Deployed to Vercel — `vercel.json` config in repo root.
 ## Known Issues
 - No mobile-specific layout optimizations — designed for desktop/tablet viewports
 - Financial facts sourced at build time; not updated for regulatory changes post-launch
+
+<!-- portfolio-context:start -->
+# Portfolio Context
+
+## What This Project Is
+
+HowMoneyMoves is an active local project in the /Users/d/Projects portfolio.
+
+## Current State
+
+Phase 3 complete — all planned phases shipped:
+- Phase 0: Vite scaffold, animation framework, data layer
+- Phase 1: First 3 animated SVG scenes + reusable animation primitives
+- Phase 2: All 6 animated scenes complete, keyboard navigation, content polish
+- Phase 3: SEO meta tags, OG image, vercel.json config, skip-to-content accessibility, Vercel deploy
+
+Scenes implemented: paycheck deposit, direct deposit, ACH transfer, Fed settlement, SWIFT wire, fractional reserve banking.
+
+## Stack
+
+- **React 18** + **TypeScript 5** (strict mode, hooks only)
+- **Vite 5** — build tool, dev server
+- **Framer Motion 11** — animation engine for all SVG/DOM transitions
+- **Tailwind CSS 3.4** — utility styling
+- **React Router 6** — section-based URL routing (e.g., `/ach`, `/swift`, `/fed`)
+- No backend, no API calls — fully static site
+
+## How To Run
+
+```bash
+npm install
+npm run dev        # development server
+npm run build      # production build
+npm run preview    # preview production build locally
+```
+
+Deployed to Vercel — `vercel.json` config in repo root.
+
+## Known Risks
+
+- No mobile-specific layout optimizations — designed for desktop/tablet viewports
+- Financial facts sourced at build time; not updated for regulatory changes post-launch
+
+## Next Recommended Move
+
+Use this context plus the README and supporting docs to resume the next active task, then promote the repo beyond minimum-viable by capturing a dedicated handoff, roadmap, or discovery artifact.
+
+<!-- portfolio-context:end -->
