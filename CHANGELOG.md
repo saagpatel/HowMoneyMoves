@@ -14,7 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - URL-per-section routing via React Router for deep-linking and sharing
 - Error-case callout panels per scene (NSF returns, ACH R-codes, SWIFT sanctions hold, Fedwire rejects)
 - Financial facts sourced from NACHA, the Federal Reserve, SWIFT, and the BIS with inline citations
-- Open Graph and Twitter Card meta tags per section for social sharing
+- Open Graph and Twitter Card meta tags (site-level; per-route social cards are not yet pre-rendered)
 - Vercel SPA rewrite config so direct-linked section routes resolve correctly
 - Skip-to-content accessibility link
 - Dark-mode-only visual design with hand-authored SVG diagrams animated via Framer Motion

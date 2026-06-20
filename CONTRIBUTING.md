@@ -32,8 +32,8 @@ npm run dev
 # Run unit tests
 npm test
 
-# Type-check without emitting
-npx tsc --noEmit
+# Type-check all project references
+npx tsc -b
 
 # Production build (output in dist/)
 npm run build
