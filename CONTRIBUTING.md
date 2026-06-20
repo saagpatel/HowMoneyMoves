@@ -19,7 +19,25 @@ Open a [GitHub Issue](../../issues/new) with:
 
 ## Development Setup
 
-See the README for installation and setup instructions.
+Prerequisites: Node.js 18+ and npm (bundled with Node).
+
+```bash
+git clone https://github.com/saagpatel/HowMoneyMoves.git
+cd HowMoneyMoves
+npm install
+
+# Start the dev server (http://localhost:5173)
+npm run dev
+
+# Run unit tests
+npm test
+
+# Type-check without emitting
+npx tsc --noEmit
+
+# Production build (output in dist/)
+npm run build
+```
 
 ## Code Style
 

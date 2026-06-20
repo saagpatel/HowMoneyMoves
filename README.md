@@ -1,6 +1,6 @@
 # HowMoneyMoves
 
-[![TypeScript](https://img.shields.io/badge/TypeScript-3178c6?style=flat-square&logo=typescript&logoColor=white)](#) [![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](#)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178c6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/) [![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](./LICENSE)
 
 > You use the US banking system every day. HowMoneyMoves makes the invisible plumbing visible — step by step, animated, with the real numbers
 
@@ -50,18 +50,18 @@ npm run preview
 
 | Layer | Technology |
 |-------|------------|
-| Framework | React 19 + React Router 6 |
-| Language | TypeScript 5.9 |
-| Animations | Framer Motion 11 |
-| Styling | Tailwind CSS 3.4 |
+| Framework | React 19 + React Router |
+| Language | TypeScript |
+| Animations | Framer Motion |
+| Styling | Tailwind CSS |
 | Icons | Lucide React |
-| Build | Vite 8 |
-| Tests | Vitest 4 + Testing Library |
+| Build | Vite |
+| Tests | Vitest + Testing Library |
 | Deploy | Vercel (SPA rewrites) |
 
 ## Architecture
 
-Each payment rail is a self-contained route with its own animation state machine. Framer Motion `AnimatePresence` drives step transitions; each step is a variant defined as a plain object so the animation logic stays in data, not in components. The step-by-step scrubber writes to a Zustand store that all animation components subscribe to, so scrubbing backward replays the exact same animation variants in reverse. No server — the entire app is a static SPA deployed to Vercel.
+Each payment rail is a self-contained route with its own animation state machine. Framer Motion `AnimatePresence` drives step transitions; each step is a variant defined as a plain object so the animation logic stays in data, not in components. The step-by-step scrubber is managed by the `useScene` hook (`src/lib/use-scene.ts`), a plain `useState`-based custom hook that returns scene state and controls — all animation components derive their step from this hook, so scrubbing backward replays the exact same animation variants in reverse. No server — the entire app is a static SPA deployed to Vercel.
 
 ## License
 
