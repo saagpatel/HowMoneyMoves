@@ -29,7 +29,7 @@ export function TimingLabel({
 			animate={{ opacity: visible ? 1 : 0 }}
 			transition={{
 				duration: DURATION.fade,
-				ease: EASE.standard as unknown as number[],
+				ease: EASE.standard,
 			}}
 		>
 			{badge && (

@@ -21,7 +21,7 @@ export function NarrativePanel({ step }: NarrativePanelProps) {
 				exit={{ opacity: 0, y: -8 }}
 				transition={{
 					duration: DURATION.fade,
-					ease: EASE.standard as unknown as number[],
+					ease: EASE.standard,
 				}}
 				className="flex flex-col gap-4"
 			>

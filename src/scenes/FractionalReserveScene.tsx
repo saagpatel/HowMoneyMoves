@@ -425,7 +425,7 @@ export function FractionalReserveScene({
 				}}
 				transition={{
 					duration: DURATION.reveal,
-					ease: EASE.standard as unknown as number[],
+					ease: EASE.standard,
 				}}
 			>
 				<rect

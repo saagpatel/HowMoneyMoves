@@ -118,7 +118,7 @@ export function PaycheckScene({ currentStep }: PaycheckSceneProps) {
 				animate={{ opacity: currentStep >= 3 ? 1 : 0 }}
 				transition={{
 					duration: DURATION.fade,
-					ease: EASE.standard as unknown as number[],
+					ease: EASE.standard,
 				}}
 			>
 				<text

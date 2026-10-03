@@ -50,7 +50,7 @@ export function InstitutionNode({
 			}}
 			transition={{
 				duration: DURATION.reveal,
-				ease: EASE.standard as unknown as number[],
+				ease: EASE.standard,
 			}}
 		>
 			{/* Highlight glow */}
