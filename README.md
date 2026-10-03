@@ -9,17 +9,17 @@ HowMoneyMoves walks you through the actual infrastructure of US banking: how a p
 ## Features
 
 - **ACH deep dive** — trace a direct deposit from payroll system to NACHA file to Fed settlement to receiver bank, with batch timing and return codes explained
-- **Fedwire walkthrough** — same-day RTGS settlement, Fedwire Funds Service architecture, and the Fedwire Securities service for government bonds
-- **SWIFT visualization** — correspondent banking chains, SWIFT message types (MT103, MT202), and why international wires take days
-- **Fractional reserve explainer** — animated money multiplier showing how $1,000 in deposits becomes $10,000 in loans at a 10% reserve ratio
-- **Error cases** — what happens when ACH returns, Fedwire rejects, or a correspondent bank goes offline
+- **Fedwire walkthrough** — real-time gross settlement through Federal Reserve reserve accounts, alongside ACH net settlement and CHIPS
+- **SWIFT visualization** — correspondent banking chains, SWIFT MT103 messages, and why international wires take days
+- **Fractional reserve explainer** — animated money multiplier illustrating how a $100 deposit can create up to $1,000 in total deposits at a theoretical 10% reserve ratio
+- **Error cases** — what happens when ACH returns, a bank fails during settlement, or a wire faces FX mismatches or sanctions holds
 - **Step-by-step controls** — scrub forward and back through each animation at your own pace
 
 ## Quick Start
 
 ### Prerequisites
 
-- Node.js 18+
+- Node.js 24.x or 26+ (the locked Vitest/ESLint toolchain does not support Node 18)
 - npm (included with Node)
 
 ### Installation
@@ -27,7 +27,7 @@ HowMoneyMoves walks you through the actual infrastructure of US banking: how a p
 ```bash
 git clone https://github.com/saagpatel/HowMoneyMoves.git
 cd HowMoneyMoves
-npm install
+npm ci --ignore-scripts
 ```
 
 ### Usage
@@ -46,6 +46,30 @@ npm run build
 npm run preview
 ```
 
+## Verification
+
+Run from the repository root after the locked install above. `--ignore-scripts`
+avoids dependency lifecycle hooks; this project has no required preparation script.
+
+```bash
+# Focus on the scene-state fixture tests
+npm test -- src/lib/use-scene.test.ts
+
+# Broader unit suite, lint, and TypeScript + production bundle checks
+npm test
+npm run lint
+npm run build
+```
+
+The build includes TypeScript checking; there is no separate formatter script.
+The tests use jsdom and fixture data, without banking services or credentials.
+CodeQL CI is separate from these local checks and does not run the unit suite.
+
+For animation, navigation, or report/content changes, also run `npm run dev` and
+check the affected payment rail in a browser: forward/back steps, play/pause,
+playback speed, error callouts, and console errors. Browser checks are conditional
+on user-facing changes; a documentation-only edit does not require them.
+
 ## Tech Stack
 
 | Layer | Technology |
@@ -61,7 +85,7 @@ npm run preview
 
 ## Architecture
 
-Each payment rail is a self-contained route with its own animation state machine. Framer Motion `AnimatePresence` drives step transitions; each step is a variant defined as a plain object so the animation logic stays in data, not in components. The step-by-step scrubber is managed by the `useScene` hook (`src/lib/use-scene.ts`), a plain `useState`-based custom hook that returns scene state and controls — all animation components derive their step from this hook, so scrubbing backward replays the exact same animation variants in reverse. No server — the entire app is a static SPA deployed to Vercel.
+Each section uses the shared `SectionPage` route (`src/pages/SectionPage.tsx`) with a dedicated scene component and an `AnimationScene` wrapper. Framer Motion `AnimatePresence` drives section and narrative transitions; scene components use inline animation targets conditional on the current step. The step-by-step scrubber is managed by the `useScene` hook (`src/lib/use-scene.ts`), a `useState`-based custom hook that returns scene state and controls — scene components receive their step from the wrapper, so scrubbing backward updates their animation targets for the selected step. No server — the entire app is a static SPA deployed to Vercel.
 
 ## License
 
