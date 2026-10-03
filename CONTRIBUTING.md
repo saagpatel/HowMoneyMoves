@@ -19,25 +19,9 @@ Open a [GitHub Issue](../../issues/new) with:
 
 ## Development Setup
 
-Prerequisites: Node.js 18+ and npm (bundled with Node).
-
-```bash
-git clone https://github.com/saagpatel/HowMoneyMoves.git
-cd HowMoneyMoves
-npm install
-
-# Start the dev server (http://localhost:5173)
-npm run dev
-
-# Run unit tests
-npm test
-
-# Type-check all project references
-npx tsc -b
-
-# Production build (output in dist/)
-npm run build
-```
+See [README setup and verification](README.md#verification) for the supported
+Node version, locked npm install, focused/full tests, lint, build, and conditional
+browser checks. Run those checks from the repository root before opening a PR.
 
 ## Code Style
 
