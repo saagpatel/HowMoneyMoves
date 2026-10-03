@@ -181,7 +181,7 @@ export function DirectDepositScene({ currentStep }: DirectDepositSceneProps) {
 				animate={{ opacity: currentStep >= 5 ? 1 : 0 }}
 				transition={{
 					duration: DURATION.fade,
-					ease: EASE.standard as unknown as number[],
+					ease: EASE.standard,
 				}}
 			>
 				<text
