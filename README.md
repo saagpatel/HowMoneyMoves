@@ -19,7 +19,7 @@ HowMoneyMoves walks you through the actual infrastructure of US banking: how a p
 
 ### Prerequisites
 
-- Node.js 18+
+- Node.js 24.x or 26+ (the locked Vitest/ESLint toolchain does not support Node 18)
 - npm (included with Node)
 
 ### Installation
@@ -27,7 +27,7 @@ HowMoneyMoves walks you through the actual infrastructure of US banking: how a p
 ```bash
 git clone https://github.com/saagpatel/HowMoneyMoves.git
 cd HowMoneyMoves
-npm install
+npm ci --ignore-scripts
 ```
 
 ### Usage
@@ -45,6 +45,30 @@ npm run build
 # Preview production build
 npm run preview
 ```
+
+## Verification
+
+Run from the repository root after the locked install above. `--ignore-scripts`
+avoids dependency lifecycle hooks; this project has no required preparation script.
+
+```bash
+# Focus on the scene-state fixture tests
+npm test -- src/lib/use-scene.test.ts
+
+# Broader unit suite, lint, and TypeScript + production bundle checks
+npm test
+npm run lint
+npm run build
+```
+
+The build includes TypeScript checking; there is no separate formatter script.
+The tests use jsdom and fixture data, without banking services or credentials.
+CodeQL CI is separate from these local checks and does not run the unit suite.
+
+For animation, navigation, or report/content changes, also run `npm run dev` and
+check the affected payment rail in a browser: forward/back steps, play/pause,
+playback speed, error callouts, and console errors. Browser checks are conditional
+on user-facing changes; a documentation-only edit does not require them.
 
 ## Tech Stack
 
